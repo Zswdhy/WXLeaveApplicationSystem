@@ -1,0 +1,79 @@
+<view class="container">
+  <text class="title">修改请假</text>
+
+  <view class="form-section">
+    <text class="section-title">学生信息</text>
+    <view class="student-info">
+      <text class="student-text">{{studentPickerText}}</text>
+    </view>
+  </view>
+
+  <view class="form-section">
+    <text class="section-title">请假时间</text>
+    <view class="time-picker-row">
+      <view class="time-picker-item">
+        <text class="label">开始日期：</text>
+        <picker
+          mode="date"
+          bindchange="onStartDateChange"
+          value="{{startDate}}"
+          class="date-picker"
+        >
+          <view class="picker-text">{{displayStartDate}}</view>
+        </picker>
+      </view>
+      <view class="time-picker-item">
+        <text class="label">开始时间：</text>
+        <picker
+          mode="selector"
+          range="{{hourList}}"
+          value="{{startHourIndex}}"
+          bindchange="onStartTimeChange"
+          class="date-picker"
+        >
+          <view class="picker-text">{{displayStartHour}}</view>
+        </picker>
+      </view>
+
+      <view class="time-picker-item">
+        <text class="label">结束日期：</text>
+        <picker
+          mode="date"
+          bindchange="onEndDateChange"
+          value="{{endDate}}"
+          class="date-picker"
+        >
+          <view class="picker-text">{{displayEndDate}}</view>
+        </picker>
+      </view>
+      <view class="time-picker-item">
+        <text class="label">结束时间：</text>
+        <picker
+          mode="selector"
+          range="{{hourList}}"
+          value="{{endHourIndex}}"
+          bindchange="onEndTimeChange"
+          class="date-picker"
+        >
+          <view class="picker-text">{{displayEndHour}}</view>
+        </picker>
+      </view>
+    </view>
+  </view>
+
+  <view class="form-section">
+    <text class="section-title">请假时长</text>
+    <view class="duration-display">
+      <text class="duration-text">{{displayDuration}}</text>
+    </view>
+  </view>
+
+  <button
+    type="primary"
+    bindtap="submitEdit"
+    class="submit-btn"
+    disabled="{{!canSubmit || isSubmitting}}"
+  >
+    {{isSubmitting ? '保存中...' : '保存修改'}}
+  </button>
+</view>

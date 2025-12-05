@@ -1,0 +1,51 @@
+/* 全局样式 */
+page {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: #f0f2f5;
+  font-size: 28rpx;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* 安全区域适配 (底部 tabBar) */
+.container {
+  padding-bottom: calc(env(safe-area-inset-bottom) + 20rpx);
+}
+
+/* 主题色变量 */
+.primary-color {
+  color: #0369a1;
+}
+
+.primary-bg {
+  background-color: #0369a1;
+}
+
+/* 卡片通用样式 */
+.card {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.08);
+  margin-bottom: 24rpx;
+}
+
+/* 按钮样式优化 */
+button {
+  border-radius: 12rpx;
+  font-size: 30rpx;
+  font-weight: 500;
+}
+
+button[type="primary"] {
+  background-color: #0369a1;
+}
+
+button[type="primary"]:active {
+  background-color: #0284c7;
+}
+
+/* 输入框通用样式 */
+input {
+  font-size: 28rpx;
+}

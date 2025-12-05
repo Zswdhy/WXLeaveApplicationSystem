@@ -1,0 +1,42 @@
+{
+  "lazyCodeLoading": "requiredComponents",
+  "pages": [
+    "pages/index/index",
+    "pages/leave/leave",
+    "pages/leave-edit/leave-edit",
+    "pages/student-edit/student-edit",
+    "pages/summary/summary"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#0369a1",
+    "navigationBarTitleText": "学生请假管理",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#0369a1",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "学生信息",
+        "iconPath": "images/student.png",
+        "selectedIconPath": "images/student_active.png"
+      },
+      {
+        "pagePath": "pages/leave/leave",
+        "text": "请假申请",
+        "iconPath": "images/leave.png",
+        "selectedIconPath": "images/leave_active.png"
+      },
+      {
+        "pagePath": "pages/summary/summary",
+        "text": "请假汇总",
+        "iconPath": "images/summary.png",
+        "selectedIconPath": "images/summary_active.png"
+      }
+    ]
+  }
+}

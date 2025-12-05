@@ -1,0 +1,90 @@
+<view class="container">
+  <text class="title">请假汇总</text>
+
+  <view class="form-section">
+    <text class="section-title">选择月份</text>
+    <picker
+      mode="date"
+      fields="month"
+      bindchange="onMonthChange"
+      value="{{selectedMonth}}"
+      class="picker"
+    >
+      <view class="picker-text">{{selectedMonthFormat}}</view>
+    </picker>
+  </view>
+
+  <!-- 全部请假记录（已注释）
+  <view class="summary-section" wx:if="{{hasData}}">
+    <view class="section-header">
+      <text class="section-title">全部请假记录</text>
+      <text class="copy-btn" bindtap="copyAllRecords" bindlongpress="copyAllRecords">复制</text>
+    </view>
+    <scroll-view scroll-y="true" class="scroll-view">
+      <view class="summary-list">
+        <block wx:for="{{allLeaveData}}" wx:key="studentId">
+          <view class="student-group">
+            <view class="student-header">
+              <text class="student-name">{{item.displayName}}</text>
+              <text class="student-info">{{item.displayInfo}}</text>
+              <text class="leave-count">请假 {{item.leaveCount}} 次</text>
+            </view>
+            <view class="leave-records">
+              <block wx:for="{{item.leaveRecords}}" wx:for-item="record" wx:key="id">
+                <view class="leave-item {{record.isLongLeave ? 'long-leave-item' : ''}}">
+                  <view class="leave-time">
+                    <text class="time-text">{{record.displayTime}}</text>
+                    <text class="duration-text">{{record.displayDuration}}</text>
+                  </view>
+                  <view class="leave-status" wx:if="{{record.isLongLeave}}">
+                    <text class="status-text long-leave">>=3天</text>
+                  </view>
+                </view>
+              </block>
+            </view>
+          </view>
+        </block>
+      </view>
+    </scroll-view>
+  </view>
+  -->
+
+  <!-- 长期请假记录（>=3天） -->
+  <view class="summary-section long-leave-section" wx:if="{{hasLongLeave}}">
+    <view class="section-header">
+      <text class="section-title">长期请假记录（>=3天）</text>
+      <text class="copy-btn" bindtap="copyLongLeaveRecords" bindlongpress="copyLongLeaveRecords">复制</text>
+    </view>
+    <scroll-view scroll-y="true" class="scroll-view">
+      <view class="summary-list">
+        <block wx:for="{{longLeaveData}}" wx:key="studentId" wx:for-index="groupIndex">
+          <view class="student-group long-leave-group">
+            <view class="student-header" data-index="{{groupIndex}}" bindtap="toggleLongLeaveExpand">
+              <view class="student-header-left">
+                <text class="student-name">{{item.displayName}}</text>
+                <text class="student-info">{{item.displayInfo}}</text>
+                <text class="leave-count long-leave-count">长假 {{item.leaveCount}} 次</text>
+              </view>
+              <text class="expand-arrow {{item.expanded ? 'expanded' : ''}}">></text>
+            </view>
+            <view class="leave-records" wx:if="{{item.expanded}}">
+              <block wx:for="{{item.leaveRecords}}" wx:for-item="record" wx:key="id">
+                <view class="leave-item long-leave-item">
+                  <view class="leave-time">
+                    <text class="time-text">{{record.displayTime}}</text>
+                    <text class="duration-text">{{record.displayDuration}}</text>
+                  </view>
+                </view>
+              </block>
+            </view>
+          </view>
+        </block>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 无长期请假提示 -->
+  <view class="no-long-leave-tip" wx:if="{{!hasLongLeave}}">
+    <text>本月无>=3天的长期请假记录</text>
+  </view>
+</view>

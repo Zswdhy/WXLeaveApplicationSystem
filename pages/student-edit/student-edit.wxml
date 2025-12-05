@@ -1,0 +1,58 @@
+<view class="container">
+  <view class="form-section">
+    <!-- 姓名 -->
+    <view class="form-item">
+      <text class="form-label">姓名</text>
+      <input
+        class="form-input"
+        placeholder="请输入学生姓名"
+        value="{{name}}"
+        bindinput="onNameInput"
+      />
+    </view>
+
+    <!-- 性别 -->
+    <view class="form-item">
+      <text class="form-label">性别</text>
+      <picker mode="selector" range="{{genderList}}" value="{{genderIndex}}" bindchange="onGenderChange">
+        <view class="form-picker">
+          <text class="{{gender ? 'picker-value' : 'picker-placeholder'}}">{{gender || '请选择性别'}}</text>
+          <text class="picker-arrow">></text>
+        </view>
+      </picker>
+    </view>
+
+    <!-- 学号 -->
+    <view class="form-item">
+      <text class="form-label">学号</text>
+      <input
+        class="form-input"
+        placeholder="请输入学号"
+        value="{{studentId}}"
+        bindinput="onStudentIdInput"
+      />
+    </view>
+
+    <!-- 班级 -->
+    <view class="form-item">
+      <text class="form-label">班级</text>
+      <input
+        class="form-input"
+        placeholder="请输入班级"
+        value="{{className}}"
+        bindinput="onClassNameInput"
+      />
+    </view>
+  </view>
+
+  <!-- 提交按钮 -->
+  <view class="btn-section">
+    <button
+      class="submit-btn {{canSubmit ? '' : 'disabled'}}"
+      bindtap="submitStudent"
+      disabled="{{!canSubmit || isSubmitting}}"
+    >
+      {{isSubmitting ? '提交中...' : (isEditMode ? '保存修改' : '添加学生')}}
+    </button>
+  </view>
+</view>

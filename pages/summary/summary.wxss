@@ -1,0 +1,266 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 30rpx;
+  padding-bottom: 120rpx;
+  background-color: #f0f2f5;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* 隐藏页面标题（使用导航栏标题） */
+.title {
+  display: none;
+}
+
+/* 表单区域 */
+.form-section {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
+  margin-bottom: 24rpx;
+  box-sizing: border-box;
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #333;
+  display: block;
+}
+
+/* 区域头部 */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+/* 复制按钮 */
+.copy-btn {
+  font-size: 24rpx;
+  color: #0369a1;
+  padding: 10rpx 24rpx;
+  background-color: #e0f2fe;
+  border-radius: 20rpx;
+  font-weight: 500;
+}
+
+.copy-btn:active {
+  background-color: #bae6fd;
+}
+
+/* 选择器 */
+.picker {
+  background-color: #f5f7fa;
+  border-radius: 12rpx;
+  padding: 24rpx;
+  margin-top: 16rpx;
+}
+
+.picker:active {
+  background-color: #eef0f2;
+}
+
+.picker-text {
+  font-size: 28rpx;
+  color: #333;
+}
+
+/* 汇总展示区域 */
+.summary-section {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+  margin-bottom: 24rpx;
+}
+
+/* 长期请假区域 */
+.long-leave-section {
+  border: 2rpx solid #fecaca;
+  background-color: #fef2f2;
+}
+
+.long-leave-section .section-title {
+  color: #dc2626;
+}
+
+.long-leave-section .copy-btn {
+  color: #dc2626;
+  background-color: #fee2e2;
+}
+
+.scroll-view {
+  max-height: 400rpx;
+  width: 100%;
+}
+
+.scroll-view-short {
+  max-height: 300rpx;
+  width: 100%;
+}
+
+.summary-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+/* 学生分组卡片 */
+.student-group {
+  background-color: #fafbfc;
+  border-radius: 14rpx;
+  padding: 20rpx;
+  border: 1rpx solid #eef0f2;
+}
+
+.long-leave-group {
+  background-color: #fff;
+  border: 1rpx solid #fecaca;
+}
+
+.student-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16rpx;
+  border-bottom: 1rpx solid #eef0f2;
+}
+
+.student-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+  flex: 1;
+}
+
+.expand-arrow {
+  font-size: 28rpx;
+  color: #999;
+  transition: transform 0.3s;
+  padding: 10rpx;
+}
+
+.expand-arrow.expanded {
+  transform: rotate(90deg);
+}
+
+.student-name {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.student-info {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.leave-count {
+  font-size: 24rpx;
+  color: #0369a1;
+  font-weight: 500;
+  background-color: #e0f2fe;
+  padding: 6rpx 16rpx;
+  border-radius: 20rpx;
+  width: fit-content;
+}
+
+.long-leave-count {
+  color: #dc2626;
+  background-color: #fee2e2;
+}
+
+/* 请假记录列表 */
+.leave-records {
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+  margin-top: 16rpx;
+}
+
+.leave-item {
+  background-color: #fff;
+  border-radius: 10rpx;
+  padding: 16rpx 20rpx;
+  box-shadow: 0 1rpx 4rpx rgba(0, 0, 0, 0.04);
+}
+
+.leave-time {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.time-text {
+  font-size: 26rpx;
+  color: #333;
+  flex: 1;
+}
+
+.duration-text {
+  font-size: 22rpx;
+  color: #666;
+  background-color: #f0f0f0;
+  padding: 6rpx 14rpx;
+  border-radius: 12rpx;
+  flex-shrink: 0;
+}
+
+.leave-status {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8rpx;
+}
+
+.status-text {
+  font-size: 22rpx;
+  font-weight: 600;
+  padding: 6rpx 14rpx;
+  border-radius: 12rpx;
+}
+
+.long-leave {
+  color: #dc2626;
+  background-color: #fee2e2;
+}
+
+/* 长期请假记录样式 */
+.long-leave-item {
+  border-left: 6rpx solid #dc2626;
+}
+
+/* 无长期请假提示 */
+.no-long-leave-tip {
+  display: flex;
+  justify-content: center;
+  padding: 24rpx;
+  font-size: 26rpx;
+  color: #666;
+  background-color: #fff;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
+}
+
+/* 空状态 */
+.empty-tip {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 300rpx;
+  font-size: 28rpx;
+  color: #999;
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 0 40rpx;
+  text-align: center;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
+}

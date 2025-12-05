@@ -1,0 +1,94 @@
+<view class="container">
+  <text class="title">学生信息管理</text>
+  <view class="upload-section">
+    <button type="primary" bindtap="chooseExcelFile" class="upload-btn">上传Excel文件</button>
+    <button type="default" bindtap="addStudent" class="add-btn">新增学生</button>
+  </view>
+  <view class="template-section">
+    <button type="default" bindtap="downloadTemplate" class="template-btn">下载Excel模板</button>
+  </view>
+
+  <!-- 搜索区域 -->
+  <view class="search-section" wx:if="{{showSearch}}">
+    <text class="section-title">查询学生</text>
+    <view class="search-box">
+      <input
+        class="search-input"
+        placeholder="请输入学号或姓名查询"
+        bindinput="onSearchInput"
+        value="{{searchKeyword}}"
+      />
+      <button type="default" bindtap="searchStudent" class="search-btn">查询</button>
+      <button type="default" bindtap="clearSearch" class="clear-btn">清空</button>
+    </view>
+  </view>
+
+  <!-- 数据展示区域 -->
+  <view class="data-section" wx:if="{{showDataSection}}">
+    <text class="section-title">{{sectionTitle}}</text>
+    <scroll-view scroll-y="true" class="scroll-view">
+      <view class="data-list">
+        <!-- 学生列表 -->
+        <block wx:for="{{displayData}}" wx:key="index">
+          <view class="data-item">
+            <view class="student-header">
+              <view class="student-info">
+                <view class="item-row">
+                  <text class="item-label">姓名：</text>
+                  <text class="item-value">{{item.displayName}}</text>
+                  <text class="item-label">性别：</text>
+                  <text class="item-value">{{item.displayGender}}</text>
+                </view>
+                <view class="item-row">
+                  <text class="item-label">学号：</text>
+                  <text class="item-value">{{item.displayId}}</text>
+                  <text class="item-label">班级：</text>
+                  <text class="item-value">{{item.displayClass}}</text>
+                </view>
+              </view>
+              <view class="student-actions">
+                <text class="student-edit-btn" data-index="{{index}}" bindtap="editStudent">编辑</text>
+                <text class="student-delete-btn" data-index="{{index}}" data-student="{{item}}" bindtap="deleteStudent">删除</text>
+              </view>
+            </view>
+
+            <!-- 请假信息 -->
+            <view class="leave-info" wx:if="{{item.hasLeaveRecords}}">
+              <view class="leave-header" data-index="{{index}}" bindtap="toggleLeaveExpand">
+                <view class="leave-header-left">
+                  <text class="leave-title">请假记录</text>
+                  <text class="leave-count">{{item.leaveCount}} 次</text>
+                </view>
+                <text class="leave-arrow {{item.expanded ? 'expanded' : ''}}">></text>
+              </view>
+              <view class="leave-list" wx:if="{{item.expanded}}">
+                <block wx:for="{{item.leaveRecords}}" wx:for-item="leave" wx:for-index="leaveIndex" wx:key="id">
+                  <view class="leave-item">
+                    <view class="leave-info-content">
+                      <text class="leave-time">{{leave.displayTime}}</text>
+                      <text class="leave-duration">{{leave.displayDuration}}</text>
+                    </view>
+                    <view class="leave-actions">
+                      <text class="leave-edit-btn" data-leave="{{leave}}" bindtap="editLeaveRecord">编辑</text>
+                      <text class="leave-delete-btn" data-leave="{{leave}}" bindtap="deleteLeaveRecord">删除</text>
+                    </view>
+                  </view>
+                </block>
+              </view>
+            </view>
+          </view>
+        </block>
+
+        <!-- 空状态 -->
+        <view class="empty-tip" wx:if="{{showEmptyResult}}">
+          <text>未找到匹配的学生信息</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 初始状态 -->
+  <view class="empty-tip" wx:if="{{showInitTip}}">
+    <text>请先上传Excel文件</text>
+  </view>
+</view>

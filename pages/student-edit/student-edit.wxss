@@ -1,0 +1,85 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 30rpx;
+  background-color: #f0f2f5;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.form-section {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 20rpx 30rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
+}
+
+.form-item {
+  display: flex;
+  align-items: center;
+  padding: 28rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.form-item:last-child {
+  border-bottom: none;
+}
+
+.form-label {
+  width: 140rpx;
+  font-size: 30rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.form-input {
+  flex: 1;
+  height: 60rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.form-picker {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60rpx;
+}
+
+.picker-value {
+  font-size: 30rpx;
+  color: #333;
+}
+
+.picker-placeholder {
+  font-size: 30rpx;
+  color: #999;
+}
+
+.picker-arrow {
+  font-size: 28rpx;
+  color: #ccc;
+}
+
+.btn-section {
+  margin-top: 60rpx;
+  padding: 0 20rpx;
+}
+
+.submit-btn {
+  width: 100%;
+  height: 96rpx;
+  line-height: 96rpx;
+  background-color: #0369a1;
+  color: #fff;
+  font-size: 32rpx;
+  font-weight: 500;
+  border-radius: 48rpx;
+  border: none;
+}
+
+.submit-btn.disabled {
+  background-color: #ccc;
+  color: #fff;
+}
